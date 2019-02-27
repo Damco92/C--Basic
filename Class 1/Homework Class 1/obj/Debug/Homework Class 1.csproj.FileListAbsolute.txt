@@ -1,0 +1,7 @@
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\bin\Debug\Homework Class 1.exe.config
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\bin\Debug\Homework Class 1.exe
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\bin\Debug\Homework Class 1.pdb
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\obj\Debug\Homework Class 1.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\obj\Debug\Homework Class 1.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\obj\Debug\Homework Class 1.exe
+C:\Users\Damco\Desktop\SEDC\C#-Basic\Homeworks\Class 1\Homework Class 1\obj\Debug\Homework Class 1.pdb
