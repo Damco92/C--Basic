@@ -18,38 +18,30 @@ namespace ConsoleApp1
             int numTwo;
             Console.WriteLine("Please enter operator");
             string operatiorInput = Console.ReadLine();
-            string operatiorSum = "+";
-            string operatiorSubstract = "-";
-            string operatorMulti = "*";
-            string operatorDevide = "/";
             bool castNumOne = Int32.TryParse(firstNumStr, out numOne);
             bool castNumTwo = Int32.TryParse(secondNumStr, out numTwo);
 
-            if(castNumOne == true && castNumTwo == true)
+          if (castNumOne == true && castNumTwo == true)
             {
-                if (operatiorInput == operatiorSum)
+                switch (operatiorInput)
                 {
-                    int resultSum = numOne + numTwo;
-                    Console.WriteLine("The result  of the summed nums is " + resultSum + " .");
-                } else if (operatiorInput == operatiorSubstract) 
-                {
-                    int resultSubstract = numOne - numTwo;
-                    Console.WriteLine("The substracted value of the two nums is " + resultSubstract + ".");
-                } else if (operatiorInput == operatorMulti)
-                {
-                    int resultMulti = numOne * numTwo;
-                    Console.WriteLine("The multiplied result of the two values is " + resultMulti + ".");
-                } else if (operatiorInput == operatorDevide)
-                {
-                    int resultDev = numOne / numTwo;
-                    Console.WriteLine("The devided result is " + resultDev + ".");
-                } else
-                {
-                    Console.WriteLine("There is not such operator");
+                    case "+":
+                        int sumResult = numOne + numTwo;
+                        Console.Write("The summed value from " + numOne + operatiorInput + numTwo + " is" + sumResult);
+                        break;
+                    case "-":
+                        int subResult = numOne - numTwo;
+                        Console.Write("The substracted value from " + numOne + operatiorInput + numTwo + " is" + subResult);
+                        break;
+                    case "*":
+                        int multyResult = numOne * numTwo;
+                        Console.Write("The multiplied value from " + numOne + operatiorInput + numTwo + " is" + multyResult);
+                        break;
+                    case "/":
+                        int devideResult = numOne / numTwo;
+                        Console.Write("The devided value from " + numOne + operatiorInput + numTwo + " is" + devideResult);
+                        break;
                 }
-            } else
-            {
-                Console.WriteLine("The inserted input is not a number");
             }
             Console.Read();
 
