@@ -1,0 +1,7 @@
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\bin\Debug\SuperMarketApp.exe.config
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\bin\Debug\SuperMarketApp.exe
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\bin\Debug\SuperMarketApp.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\obj\Debug\SuperMarketApp.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\obj\Debug\SuperMarketApp.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\obj\Debug\SuperMarketApp.exe
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_5\SuperMarketApp\obj\Debug\SuperMarketApp.pdb
