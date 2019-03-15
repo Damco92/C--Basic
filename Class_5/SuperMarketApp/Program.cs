@@ -70,9 +70,9 @@ namespace SuperMarketApp
                     {
                         Console.WriteLine($"The product {product.Name} has been entered in the list");
                         Array.Resize<string>(ref myCart.listOfProducts, myCart.listOfProducts.Length + 1);
-                        inputProduct = myCart.listOfProducts[counter];
+                        myCart.listOfProducts[counter] = inputProduct;
                         counter++;
-
+                        continue;
                     }
                     else if (inputProduct != product.Name)
                     {
