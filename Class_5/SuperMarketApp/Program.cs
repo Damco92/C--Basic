@@ -31,6 +31,22 @@ namespace SuperMarketApp
                 cashier = true
             };
 
+            Product salami = new Product()
+            {
+                Name = "Salami",
+                SN = "234yr4535323",
+                Declaration = "tyrteg454645",
+                Discription = "Meat product"
+            };
+
+            Product kefir = new Product()
+            {
+                Name = "Kefir",
+                SN = "234yr4535323",
+                Declaration = "tyrteg454645",
+                Discription = "Milk product"
+            };
+
             Product bread = new Product()
             {
                 Name = "Bread",
@@ -50,39 +66,67 @@ namespace SuperMarketApp
             Cart myCart = new Cart()
             {
                 SN = "123224gfd",
-                listOfProducts = new string[2]
+                products = new List<Product>()
             };
-            Product[] myProducts = new Product[2];
-            myProducts[0] = bread;
-            myProducts[1] = cheese;
+            List<Product> myProducts = new List<Product>()
+            {
+                bread,
+                cheese,
+                kefir,
+                salami
+            };
+
 
             damjan.Itroduction();
             Igor.Itroduction();
-            bool valid = true;
-            while (valid)
+            // show the products with caling a method
+            showProducts(myProducts);
+            Console.WriteLine("Please chose y for entering a new product or press any botton if you want to exit");
+            string choise = Console.ReadLine();
+            if (choise == "y")
             {
-                Console.WriteLine("Please enter product");
-                string inputProduct = Console.ReadLine();
-                int counter = 0;
-                foreach (Product product in myProducts)
-                {
-                   if (inputProduct == product.Name)
-                    {
-                        Console.WriteLine($"The product {product.Name} has been entered in the list");
-                        Array.Resize<string>(ref myCart.listOfProducts, myCart.listOfProducts.Length + 1);
-                        myCart.listOfProducts[counter] = inputProduct;
-                        counter++;
-                        continue;
-                    }
-                    else if (inputProduct != product.Name)
-                    {
-                        Console.WriteLine("There is no such product available. Pleae try again");
-                        break;
-                    }
-                }
+                addProductToCart(choise,myProducts);
+                showProducts(myProducts);
+            } 
+            else
+            {
+                Console.WriteLine("exit");
             }
-
-          } 
+            Console.Read();
         } 
-    }
+        static List<Product> addProductToCart(string choise,List<Product> myProducts)
+        {
+            bool valid = true;
+            while(valid) { 
+                Console.WriteLine("Please enter the products name");
+                string productName = Console.ReadLine();
+                Console.WriteLine("Pleae enter SN");
+                string productSN = Console.ReadLine();
+                Console.WriteLine("Please enter declaration");
+                string newDeclaration = Console.ReadLine();
+                Console.WriteLine("Please enter discription");
+                string newDescription = Console.ReadLine();
+                myProducts.Add(new Product
+                {
+                    Name = productName,
+                    SN = productSN,
+                    Declaration = newDeclaration,
+                    Discription = newDescription
+                });
+                Console.WriteLine($"The product {productName} with the SN {productSN} has been added to the cart");
+                valid = false;
+            }
+            return myProducts;
+        }
+        
+        static void showProducts(List<Product> products)
+        {
+            Console.WriteLine("You have the following products in your cart so far!");
+            foreach (Product item in products)
+            {
+                Console.WriteLine($"Product Name: {item.Name}, Product SN: {item.SN}, Product declaration: {item.Declaration}, Product Discription: {item.Discription}");
+            }
+        }
+      } 
+   }
 

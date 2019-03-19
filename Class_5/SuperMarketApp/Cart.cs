@@ -9,6 +9,6 @@ namespace SuperMarketApp
     class Cart
     {
         public string SN;
-        public string[] listOfProducts;
+        public List<Product> products;
     }
 }

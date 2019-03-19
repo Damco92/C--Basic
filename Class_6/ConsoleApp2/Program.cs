@@ -40,39 +40,83 @@ namespace ConsoleApp2
             Users[1] = user2;
             Users[2] = user3;
             Console.WriteLine("Please enter your username");
-            string name = Console.ReadLine();
-            //checkUsers(name, Users);
+            public string name = Console.ReadLine();
+        checkUsers(name, Users);
+        showNames(Users);
+        Console.Read();
+            }
 
-            Console.Read();
+    static void checkUsers(string name, User[] Users)
+    {
+        int found = 0;
+        foreach (User item in Users)
+        {
+            if (item.Username == name)
+            {
+                found = 1;
+                for (int i = 0; i < item.Messages.Length; i++)
+                {
+                    Console.WriteLine($"The message for the user with username {item.Username} is {item.Messages[i]}");
+                }
+            }
+        }
+        if (found == 0)
+        {
+            Console.WriteLine("User is not found");
+            Console.WriteLine("Do you want to register? y/n");
+            string choise = Console.ReadLine();
+            if (choise == "y")
+            {
+                Register(Users);
+            }
+        }
+    }
+
+    static void Register(User[] Users)
+    {
+        int index = Users.Length;
+        Array.Resize<User>(ref Users, index + 1);
+        Console.WriteLine("Enter new ID");
+        int newId;
+        string newStringId = Console.ReadLine();
+        bool castId = Int32.TryParse(newStringId, out newId);
+        if (castId)
+        {
+            Users[index - 1].Id = newId;
+        }
+        else
+        {
+            throw new Exception("ID must be a number!");
         }
 
-        //static void checkUsers(string name, User[] Users)
-        //{
-        //    int found = 0;
-        //    foreach (User item in Users) 
-        //    {
-        //        if (item.Username == name )
-        //        {
-        //            found = 1;
-        //            for (int i = 0; i < item.Messages.Length; i++)
-        //            {
-        //                Console.WriteLine($"The message for the user with username {item.Username} is {item.Messages[i]}");
-        //            }
-        //        }
+        Console.WriteLine("Enter new Username");
+        Users[index - 1].Username = Console.ReadLine();
 
-        //        if (found == 0)
-        //        {
-        //            Console.WriteLine("User is not found");
-        //            Console.WriteLine("Do you want to register? y/n");
-        //            //string choise = Console.ReadLine();
-        //            //if (choise == "y")
-        //            //{
-        //                //Register (User[] Users);
-        //            //}
-        //        }
-        //    }
-        //}
+        Console.WriteLine("Enter new password");
+        Users[index - 1].SetPassword(Console.ReadLine());
 
+        Console.WriteLine("Enter your message");
+        Users[index - 1].Messages[0] = $"Hello new User {Users[index - 1].Username}.";
 
     }
+
+    static void showNames(User[] Users)
+    {
+        foreach (var item in Users)
+        {
+            Console.WriteLine("Id: {0}", item.Id);
+            Console.WriteLine("Username: {0}", item.Username);
+            Console.WriteLine("Passwhord: {0}", item.SetPassword(item.Password));
+            for (int i = 0; i < item.Messages.Length; i++)
+            {
+                Console.WriteLine(item.Messages[i]);
+            }
+        }
+    }
 }
+
+
+
+
+
+

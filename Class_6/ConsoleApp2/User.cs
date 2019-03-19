@@ -10,8 +10,8 @@ namespace ConsoleApp2
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        private string Password { get; set; }
-        public string[] Messages;
+        public string Password { get; set; }
+        public string[] Messages = new string[1];
 
         public string SetPassword(string myPass)
         {
@@ -25,6 +25,7 @@ namespace ConsoleApp2
 
         public User()
         {
+
 
         }
         

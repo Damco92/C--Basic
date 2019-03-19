@@ -5,3 +5,10 @@ C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_6\ConsoleApp2\obj
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_6\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_6\ConsoleApp2\obj\Debug\ConsoleApp2.exe
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_6\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\obj\Debug\ConsoleApp2.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
