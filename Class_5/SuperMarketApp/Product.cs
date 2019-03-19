@@ -12,6 +12,7 @@ namespace SuperMarketApp
         public string SN;
         public string Discription;
         public string Declaration;
+        public int Price;
 
        
 

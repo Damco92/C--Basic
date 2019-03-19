@@ -36,7 +36,8 @@ namespace SuperMarketApp
                 Name = "Salami",
                 SN = "234yr4535323",
                 Declaration = "tyrteg454645",
-                Discription = "Meat product"
+                Discription = "Meat product",
+                Price = 100
             };
 
             Product kefir = new Product()
@@ -44,7 +45,8 @@ namespace SuperMarketApp
                 Name = "Kefir",
                 SN = "234yr4535323",
                 Declaration = "tyrteg454645",
-                Discription = "Milk product"
+                Discription = "Milk product",
+                Price = 50
             };
 
             Product bread = new Product()
@@ -52,7 +54,8 @@ namespace SuperMarketApp
                 Name = "Bread",
                 SN = "234yr4535323",
                 Declaration = "tyrteg454645",
-                Discription = "Flower based prdocut"
+                Discription = "Flower based prdocut",
+                Price = 30
             };
 
             Product cheese = new Product()
@@ -60,7 +63,8 @@ namespace SuperMarketApp
                 Name = "Cheese",
                 SN = "64hg56wfgj",
                 Discription = "Milk make product",
-                Declaration = "r459wfgi4h"
+                Declaration = "r459wfgi4h",
+                Price = 200
             };
 
             Cart myCart = new Cart()
@@ -85,16 +89,17 @@ namespace SuperMarketApp
             string choise = Console.ReadLine();
             if (choise == "y")
             {
-                addProductToCart(choise,myProducts);
+                addProductToCart(myProducts);
                 showProducts(myProducts);
             } 
             else
             {
+                cashOut(myProducts);
                 Console.WriteLine("exit");
             }
             Console.Read();
         } 
-        static List<Product> addProductToCart(string choise,List<Product> myProducts)
+        static List<Product> addProductToCart(List<Product> myProducts)
         {
             bool valid = true;
             while(valid) { 
@@ -106,6 +111,8 @@ namespace SuperMarketApp
                 string newDeclaration = Console.ReadLine();
                 Console.WriteLine("Please enter discription");
                 string newDescription = Console.ReadLine();
+                Console.WriteLine("Pleaes enter price");
+                int price = Convert.ToInt32(Console.ReadLine());
                 myProducts.Add(new Product
                 {
                     Name = productName,
@@ -113,8 +120,18 @@ namespace SuperMarketApp
                     Declaration = newDeclaration,
                     Discription = newDescription
                 });
-                Console.WriteLine($"The product {productName} with the SN {productSN} has been added to the cart");
-                valid = false;
+                Console.WriteLine($"The product {productName} with the SN {productSN} with price {price} has been added to the cart");
+                Console.WriteLine("Please choose y if you want to input an other product");
+                string newChoise = Console.ReadLine();
+                if (newChoise == "y")
+                {
+                    continue;
+                }
+                else
+                {
+                    valid = false;
+                    break;
+                }
             }
             return myProducts;
         }
@@ -124,8 +141,28 @@ namespace SuperMarketApp
             Console.WriteLine("You have the following products in your cart so far!");
             foreach (Product item in products)
             {
-                Console.WriteLine($"Product Name: {item.Name}, Product SN: {item.SN}, Product declaration: {item.Declaration}, Product Discription: {item.Discription}");
+                Console.WriteLine($"Product Name: {item.Name}, Product SN: {item.SN}, Product declaration: {item.Declaration}, Product Discription: {item.Discription} Price: {item.Price}");
             }
+            Console.WriteLine("Would you like to cash out?");
+            string choiseCashOut = Console.ReadLine();
+            if (choiseCashOut == "y")
+            {
+                cashOut(products);
+            }
+            else
+            {
+                addProductToCart(products);
+            }
+        }
+
+        static void cashOut(List<Product> produkti)
+        {
+            int sumToPay = 0;
+            foreach (Product item in produkti)
+            {
+                sumToPay += item.Price;
+            }
+            Console.WriteLine("Total amount to pay is " + sumToPay);
         }
       } 
    }
