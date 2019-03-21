@@ -10,98 +10,77 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            NumberStats();
+            Console.WriteLine("Wellcome to the ATM!");
+            User damjan = new User("Damjan Stojanovski", "2324-4532-1234");
+            User riste = new User("Riste Spasov", "1213-5452-3213");
+            damjan.SetBalance(10000);
+           // riste.SetBalance(5000);
+            damjan.SetCardPin();
+           // riste.SetCardPin();
+            cashWithdraw(damjan.GetBalance());
             Console.Read();
         }
 
-        static void NumberStats()
+        static void cashWithdraw(int balance)
         {
-            Console.WriteLine("Please enter the  number");
-            bool valid = true;
-
-            while (valid)
+        while (true)
+        { 
+            Console.WriteLine("Please enter amount you want to whwithdraw!");
+            int currentBalance;
+            string whwithdrawAmountString = Console.ReadLine();
+            int whwithdrawAmount;
+            bool castwhwithdrawAmount = Int32.TryParse(whwithdrawAmountString, out whwithdrawAmount);
+            if (castwhwithdrawAmount)
             {
-                checkIfPositive();
-                checkIfIntOrDouble();
-                checkIfOddOrEven();
-
-                
-                Console.WriteLine("Please enter Y if you want to test an other number or X to exit");
-                string continueExe = Console.ReadLine();
-                if (continueExe == "Y")
+                currentBalance = balance;
+                if (whwithdrawAmount > currentBalance)
                 {
-                    Console.WriteLine("Plesae enter new number");
-                    continue;
+                    throw new Exception("Sorry no sufficant funds on your card");
                 }
-                else if (continueExe == "X")
+                else if (whwithdrawAmount == balance)
                 {
-                    Console.WriteLine("Press enter to exit");
-                    break;
-                } else
-                {
-                    Console.WriteLine("You must enter eather Y or N");
-                    continue;
+                    Console.WriteLine("Would you like to whwithdraw all the funds on your card? (y/n)");
+                    string choise = Console.ReadLine();
+                    if (choise == "y")
+                    {
+                        currentBalance = 0;
+                        Console.WriteLine("Now you have 0 euros on your card!");
+                            break;
+                    }
+                    else if (choise == "n")
+                    {
+                            continue;
+                    }
+                    else
+                    {
+                            Console.WriteLine("You must enter eather y or n");
+                            break;
+                    }
                 }
+                else
+                {
+                   currentBalance = balance - whwithdrawAmount;
+                        Console.WriteLine($"Now you have {currentBalance} EUR to your account!");
+                        Console.WriteLine("Do you want to make an other transaction? (y/n)");
+                        string choise = Console.ReadLine();
+                        if (choise == "y")
+                        {
+                            balance = currentBalance;
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Thank you for your trust!");
+                            break;
+                        }
+                }
+            } 
+            else
+            {
+                throw new Exception("Sorry wrong input!");
             }
-            
-        }
 
-        static string checkIfPositive()
-        {
-            string stringNumber = Console.ReadLine();
-            double myDouble;
-            bool cast = double.TryParse(stringNumber, out myDouble);
-            if (cast)
-            {
-                if (myDouble > 0) Console.WriteLine("POSITIVE");
-                else if (myDouble < 0) Console.WriteLine("NEGATIVE");
-                else Console.WriteLine("ZERO");
-            }
-            else
-            {
-                Console.WriteLine("The input was not a number!");
-            }
-            return stringNumber;
-        }
-        static string checkIfIntOrDouble()
-        {
-            checkIfPositive();
-            double myDouble;
-            int myIntiger;
-            bool castInt = Int32.TryParse(checkIfPositive(), out myIntiger);
-            bool cast = double.TryParse(checkIfPositive(), out myDouble);
-            if (cast)
-            {
-                if (myDouble % 1 == 0) Console.WriteLine("INTIGER");
-                else if (myDouble % 1 != 0) Console.WriteLine("DOUBLE");
-            }
-            else if (castInt)
-            {
-                if (myDouble % 1 == 0) Console.WriteLine("INTIGER");
-                else if (myDouble % 1 != 0) Console.WriteLine("DOUBLE");
-            }
-            else
-            {
-                Console.WriteLine("The input was not a number!");
-            }
-            return checkIfPositive();
-        }
-
-        static string checkIfOddOrEven()
-        {
-            checkIfPositive();
-            double myDouble;
-            bool cast = double.TryParse(checkIfPositive(), out myDouble);
-            if (cast)
-            {
-                if (myDouble % 2 == 0) Console.WriteLine("EVEN");
-                else if (myDouble % 2 == 1) Console.WriteLine("ODD");
-            }
-            else
-            {
-                Console.WriteLine("The input was not a number!");
-            }
-            return checkIfPositive();
-        }
+         }
+      }
     }
 }

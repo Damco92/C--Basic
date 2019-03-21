@@ -118,10 +118,11 @@ namespace SuperMarketApp
                     Name = productName,
                     SN = productSN,
                     Declaration = newDeclaration,
-                    Discription = newDescription
+                    Discription = newDescription,
+                    Price = price
                 });
                 Console.WriteLine($"The product {productName} with the SN {productSN} with price {price} has been added to the cart");
-                Console.WriteLine("Please choose y if you want to input an other product");
+                Console.WriteLine("Please choose y if you want to input an other product or press any key to cash out");
                 string newChoise = Console.ReadLine();
                 if (newChoise == "y")
                 {
@@ -143,15 +144,19 @@ namespace SuperMarketApp
             {
                 Console.WriteLine($"Product Name: {item.Name}, Product SN: {item.SN}, Product declaration: {item.Declaration}, Product Discription: {item.Discription} Price: {item.Price}");
             }
-            Console.WriteLine("Would you like to cash out?");
+            Console.WriteLine("Would you like to cash out? If you press n you will chose the option two buy an other product(y/n)");
             string choiseCashOut = Console.ReadLine();
             if (choiseCashOut == "y")
             {
                 cashOut(products);
             }
-            else
+            else if(choiseCashOut == "n")
             {
                 addProductToCart(products);
+            }
+            else
+            {
+                throw new Exception("The input must be y or n no other characters allowed!");
             }
         }
 
