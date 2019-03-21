@@ -13,6 +13,8 @@ namespace ConsoleApp1
         private int Pin { get; set; }
         private int Balance { get; set; }
 
+       
+
         public int GetCardPin()
         {
             return Pin;
@@ -45,10 +47,10 @@ namespace ConsoleApp1
             Balance = myBalance;
             return Balance;
         }
-        public User(string name, string cardNumber)
+        public User(string name, string cardNum)
         {
-            name = FullName;
-            cardNumber = CardNumber;
+            FullName = name;
+            CardNumber = cardNum;
         }
     }
 }

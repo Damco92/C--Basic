@@ -5,3 +5,10 @@ C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp1\obj\Debug\
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\obj\Debug\ConsoleApp1.exe
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\obj\Debug\ConsoleApp1.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\bin\Debug\ConsoleApp1.exe
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_6\ATM\bin\Debug\ConsoleApp1.pdb
