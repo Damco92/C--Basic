@@ -18,45 +18,99 @@ namespace ConsoleApp1
 
             damjan.SetBalance(10000);
             riste.SetBalance(5000);
-
-            if (checkUser(users) == damjan)
+            User castedUser = checkUser(users);
+            Console.WriteLine("Please chose 1 if you want to Withdra money from your account or 2 to put money on your account!");
+            string mainManuChoise = Console.ReadLine();
+            if (mainManuChoise == "1")
             {
-                damjan.SetCardPin();
-                cashWithdraw(damjan.GetBalance());
-            } else if (checkUser(users) == riste)
+                if (castedUser == riste)
+                {
+                    riste.SetCardPin();
+                    cashWithdraw(riste.GetBalance());
+                }
+                else if (castedUser == damjan)
+                {
+                    damjan.SetCardPin();
+                    cashWithdraw(damjan.GetBalance());
+                }
+                else
+                {
+                    throw new Exception("No such user!");
+                }
+            } else if (mainManuChoise == "2")
             {
-                riste.SetCardPin();
-                cashWithdraw(riste.GetBalance());
+                if (castedUser == riste)
+                {
+                    riste.SetCardPin();
+                    cashInput(riste.GetBalance());
+                }
+                else if (castedUser == damjan)
+                {
+                    damjan.SetCardPin();
+                    cashInput(damjan.GetBalance());
+                }
+                else
+                {
+                    throw new Exception("No such user!");
+                }
+            } else
+            {
+                throw new Exception("You must choose eather 1 or 2!");
             }
 
             Console.Read();
         }
 
+
+        static int cashInput(int balance)
+       {
+            int currentBalance = balance;
+            while (true)
+            {
+                Console.WriteLine("Please enter amount you want to input!");
+                string inputMoneyString = Console.ReadLine();
+                int inputMoney;
+                bool castwhwithdrawAmount = Int32.TryParse(inputMoneyString, out inputMoney);
+                if (castwhwithdrawAmount)
+                {
+                    currentBalance +=  inputMoney;
+                    Console.WriteLine($"Now you got {currentBalance} on your account! Would you like to add more? (y/n)");
+                    string choiseInput = Console.ReadLine();
+                    if (choiseInput == "y")
+                    {
+                        continue;
+                    } else if (choiseInput =="n")
+                    {
+                        Console.WriteLine("Thank you for your trust have a great day!");
+                        break;
+                    } else
+                    {
+                        throw new Exception("Wrong input you must enter eather y or n!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Sorry wrong input!");
+                }
+            }
+            return currentBalance;
+         }
+
+
         static User checkUser(List<User> users)
         {
             Console.WriteLine("Please enter card number!");
             string checkCardNum = Console.ReadLine();
-            int userFound = 0;
             foreach (User user in users)
             {
                 if (checkCardNum == user.CardNumber)
                 {
-                    userFound = 1;
                     Console.WriteLine($"Hello {user.FullName}");
                     return user;
                 }
             }
-            if (userFound == 0)
-            {
-                Console.WriteLine("User is not found");
-                return null;
-            }
-
-        }
-
-        static void checkBalance()
-        {
-            
+            Console.WriteLine("User not found");
+            return null;
         }
 
         static int cashWithdraw(int balance)
@@ -107,6 +161,7 @@ namespace ConsoleApp1
                         }
                         else if (choise == "n")
                         {
+                            Console.WriteLine($"Now you have {currentBalance} EUR to your account!");
                             Console.WriteLine("Thank you for your trust!");
                             break;
                         }

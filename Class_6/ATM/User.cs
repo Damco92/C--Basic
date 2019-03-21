@@ -19,7 +19,6 @@ namespace ConsoleApp1
         {
             return Pin;
         }
-
         public int SetCardPin()
         {
             Console.WriteLine("Please enter your PIN!");
@@ -36,7 +35,6 @@ namespace ConsoleApp1
             }
             return Pin;
         }
-
         public int GetBalance()
         {
             return Balance;
