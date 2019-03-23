@@ -8,31 +8,14 @@ namespace AcademyApp
 {
     public class Student : User
     {
-        public string Username { get; set; }
-        private string Password { get; set; }
+        public string FullName { get; set; }
         public Dictionary<string, int> SubjectsAndGrades = new Dictionary<string, int>();
 
-        public string GetPassword()
-        {
-            return Password;
-        }
 
-        public string SetPassword(string myPassword)
-        {
-            if (myPassword.Length < 8)
-            {
-                throw new Exception("Password is too week!");
-            }
-            else
-            {
-                Password = myPassword;
-                return Password;
-            }
-        }
 
-        public Student(string username, Dictionary<string,int> subAndGra)
+        public Student(string fullName, string userName, Role role,Dictionary<string, int> subAndGra) : base(userName, Role.Student)
         {
-            Username = username;
+            FullName = fullName;
             SubjectsAndGrades = subAndGra;
         }
     }

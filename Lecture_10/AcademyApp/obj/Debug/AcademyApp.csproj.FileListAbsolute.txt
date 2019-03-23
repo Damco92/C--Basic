@@ -4,3 +4,9 @@ C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_10\AcademyApp\obj
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_10\AcademyApp\obj\Debug\AcademyApp.csproj.CoreCompileInputs.cache
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_10\AcademyApp\obj\Debug\AcademyApp.dll
 C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Class Lectures\Lecture_10\AcademyApp\obj\Debug\AcademyApp.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Lecture_10\AcademyApp\bin\Debug\AcademyApp.dll
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Lecture_10\AcademyApp\bin\Debug\AcademyApp.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Lecture_10\AcademyApp\obj\Debug\AcademyApp.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Lecture_10\AcademyApp\obj\Debug\AcademyApp.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Lecture_10\AcademyApp\obj\Debug\AcademyApp.dll
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Lecture_10\AcademyApp\obj\Debug\AcademyApp.pdb

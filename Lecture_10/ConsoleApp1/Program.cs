@@ -11,15 +11,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Admin orce = new Admin("Orce");
-            Admin dejan = new Admin("dejan");
-            Trainer risto = new Trainer("risto");
-            Trainer martin = new Trainer("martin");
-            Student damjan = new Student("damco",new Dictionary<string, int>
+            User orce = new Admin("Orce Petrevski","orce", Role.Admin);
+            User dejan = new Admin("Dejan Zdravskovski", "deki",Role.Admin);
+            User risto = new Trainer("Risto Panchevski","riki",Role.Trainer);
+            User martin = new Trainer("Martin Panovski","macko",Role.Trainer);
+            User damjan = new Student("Damjan Stojanovski","damco",Role.Student,new Dictionary<string, int>
                                                                                { { "C# advanced", 10 },
                                                                                { "JavaScript Basic", 7},
                                                                                                     });
-            Student stefi = new Student("stefi", new Dictionary<string, int>
+            User stefi = new Student("Stefania Makarovska","stefi",Role.Student, new Dictionary<string, int>
                                                                                { { "C# advanced", 8 },
                                                                                { "JavaScript Basic", 5},
                                                                                                     });
@@ -30,36 +30,38 @@ namespace ConsoleApp1
             damjan.SetPassword("damco123");
             stefi.SetPassword("basketball");
 
-            List<Admin> admins = new List<Admin> { orce, dejan };
-            List<Trainer> trainers = new List<Trainer> { risto, martin };
-            List<Student> students = new List<Student> { damjan,  stefi };
+            List<User> users = new List<User> { orce, dejan, risto, martin, damjan, stefi };
 
-            LogInAdmin(admins);
+            List<User> admins = users.Where(user => user.role == Role.Admin).ToList();
+            List<User> trainers = users.Where(user => user.role == Role.Trainer).ToList();
+            List<User> students = users.Where(user => user.role == Role.Student).ToList();
+
+
+
             Console.Read();
         }
 
-        static void LogInAdmin(List<Admin> myAdmins)
+        static bool LogIn(List<User> users)
         {
-            Console.WriteLine("Pleae enter your role!");
-            string choise = Console.ReadLine();
-            if (choise == "admin")
+            Console.WriteLine("Plese enter your username");
+            string usernameInput = Console.ReadLine();
+            Console.WriteLine("Please enter your password");
+            string passInput = Console.ReadLine();
+            bool found = false;
+            foreach (User user in users)
             {
-                Console.WriteLine("Wellcome Admin please enter your admin username");
-                string adminChoise = Console.ReadLine();
-                bool found = false;
-                foreach (Admin admin in myAdmins)
+                if (usernameInput == user.Username && passInput == user.GetPassword())
                 {
-                    if (adminChoise == admin.Username)
-                    {
-                        Console.WriteLine(admin.Username + "you are logged in!");
-                        found = true;
-                    }
-                }
-                if (found == false)
-                {
-                    Console.WriteLine("User is not found!");
+                    found = true;
+                    Console.WriteLine($"User: {user.Username} is a {user.role} and is in our database!");
                 }
             }
+            if (found == false)
+            {
+                Console.WriteLine("User does not exists!");
+                throw new Exception("Wrong Input!");
+            }
+            return true;
         }
     }
 }

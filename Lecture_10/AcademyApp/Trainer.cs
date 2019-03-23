@@ -8,29 +8,11 @@ namespace AcademyApp
 {
     public class Trainer : User
     {
-        public string Username { get; set; }
-        private string Password { get; set; }
+        public string FullName { get; set; }
 
-        public string GetPassword()
+        public Trainer(string fullName, string userName,Role role) : base( userName, Role.Trainer)
         {
-            return Password;
-        }
-        public string SetPassword(string myPassword)
-        {
-            if (myPassword.Length < 8)
-            {
-                throw new Exception("Password is too week!");
-            }
-            else
-            {
-                Password = myPassword;
-                return Password;
-            }
-        }
-
-        public Trainer(string username)
-        {
-            Username = username;
+            FullName = fullName;
         }
     }
 }

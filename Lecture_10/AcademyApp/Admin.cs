@@ -8,36 +8,13 @@ namespace AcademyApp
 {
     public class Admin : User
     {
-        public string Username { get; set; }
-        private string Password { get; set; }
+        public string FullName { get; set; }
 
-        public string GetPassword()
+        public Admin(string fullName, string userName, Role role) : base(userName, Role.Admin)
         {
-            return Password;
+            FullName = fullName;
         }
 
-        public string SetPassword(string myPassword)
-        {
-            if (myPassword.Length < 8)
-            {
-                throw new Exception("Password is too week!");
-            }
-            else
-            {
-                Password = myPassword;
-                return Password;
-            }
-        }
-
-        public Admin(string username)
-        {
-            Username = username;
-        }
-
-        public void addOrRemoveAdmin(List<Admin> admins)
-        {
-            Console.WriteLine("Please enter an admin name you want to remove");
-            string chooseAdming = Console.ReadLine();
-        }
+        
     }
 }
