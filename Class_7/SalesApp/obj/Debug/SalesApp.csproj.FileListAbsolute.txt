@@ -1,0 +1,6 @@
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_7\SalesApp\bin\Debug\SalesApp.dll
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_7\SalesApp\bin\Debug\SalesApp.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_7\SalesApp\obj\Debug\SalesApp.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_7\SalesApp\obj\Debug\SalesApp.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_7\SalesApp\obj\Debug\SalesApp.dll
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_7\SalesApp\obj\Debug\SalesApp.pdb
