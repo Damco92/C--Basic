@@ -13,7 +13,7 @@ namespace ClassLibrary1
         public string LastName { get; set; }
         public int Age { get; set; }
         public Genre FavoreteMusicType;
-        List<Song> favoriteSongs = new List<Song>();
+        public List<Song> favoriteSongs = new List<Song>();
 
         public Person(string first,string last,int age,Genre gen)
         {
@@ -22,24 +22,19 @@ namespace ClassLibrary1
             Age = age;
             FavoreteMusicType = gen;
         }
-
-
-        public void GetFavSongs()
+        
+        public void showFavoriteSongsTitles()
         {
-            if (favoriteSongs.Count > 0)
+            int counter = 0;
+            foreach (var item in favoriteSongs)
             {
-                foreach (var song in favoriteSongs)
-                {
-                    Console.WriteLine(song);
-                }
+                if(!item.Title.Equals("") || !item.Title.Equals(null))
+                { 
+                counter = 1;
+                Console.WriteLine(item.Title);
+                } 
             }
-            else
-            {
-                Console.WriteLine("{0} {1} doesn't like {2}", FirstName, LastName, FavoreteMusicType);
-            }
+            if (counter == 0) throw new Exception($"The person {FirstName} {LastName} hates music!");
         }
-
-
-
     }
 }

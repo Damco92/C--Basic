@@ -60,31 +60,31 @@ namespace ConsoleApp2
             FansArray.Add(Maria);
             FansArray.Add(Jane);
 
-            Jerry.GetFavSongs();
+            //getFaveSongs(Songs, FansArray);
+
+            List<Song> jerrySongs = Songs.Where(x => x.Title.StartsWith("B")).ToList();
+            Jerry.favoriteSongs = jerrySongs;
+            //Jerry.showFavoriteSongsTitles();
+
+            List<Song> mariasSongs = Songs.Where(song => song.Length > 360).ToList();
+            Maria.favoriteSongs = mariasSongs;
+           // Maria.showFavoriteSongsTitles();
+
+            List<Song> janeSongs = Songs.Where(song => song.Genre == Genre.Rock).ToList();
+            Jane.favoriteSongs = janeSongs;
+            // Jane.showFavoriteSongsTitles();
+            List<Song> stefanSongs = Songs.Where(song => song.Length < 180 && song.Genre == Genre.Hip_Hop).ToList();
+            Stefan.favoriteSongs = stefanSongs;
+            //Stefan.showFavoriteSongsTitles();
+
+            List<Person> peopleWithFourOrMoreFaveSongs = FansArray.Where(person => person.favoriteSongs.Count > 4).ToList();
+            foreach (var person in peopleWithFourOrMoreFaveSongs)
+            {
+                Console.WriteLine(person.FirstName);
+            }
 
             Console.Read();
 
         }
-
-        //static void getFaveSongs(List<Song> songs, List<Person> people)
-        //{
-        //    bool found = false;
-        //    foreach (Person person in people)
-        //    {
-        //        Console.WriteLine($"{person.FirstName} favorite songs are:");
-        //        foreach (Song song in songs)
-        //        {
-        //            if (person.FavoreteMusicType == song.Genre)
-        //            {
-        //                found = true;
-        //                Console.WriteLine($"{song.Title}");
-        //            }
-        //        }
-        //    }
-        //    if (found == false)
-        //    {
-        //        throw new Exception("Person hates music!");
-        //    }
-        //}
     }
 }
