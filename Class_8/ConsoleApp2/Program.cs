@@ -60,31 +60,31 @@ namespace ConsoleApp2
             FansArray.Add(Maria);
             FansArray.Add(Jane);
 
-            getFaveSongs(Songs, FansArray);
+            Jerry.GetFavSongs();
 
             Console.Read();
 
         }
 
-        static void getFaveSongs(List<Song> songs, List<Person> people)
-        {
-            bool found = false;
-            foreach (Person person in people)
-            {
-                Console.WriteLine($"{person.FirstName} favorite songs are:");
-                foreach (Song song in songs)
-                {
-                    if (person.FavoreteMusicType == song.Genre)
-                    {
-                        found = true;
-                        Console.WriteLine($"{song.Title}");
-                    }
-                }
-            }
-            if (found == false)
-            {
-                throw new Exception("Person hates music!");
-            }
-        }
+        //static void getFaveSongs(List<Song> songs, List<Person> people)
+        //{
+        //    bool found = false;
+        //    foreach (Person person in people)
+        //    {
+        //        Console.WriteLine($"{person.FirstName} favorite songs are:");
+        //        foreach (Song song in songs)
+        //        {
+        //            if (person.FavoreteMusicType == song.Genre)
+        //            {
+        //                found = true;
+        //                Console.WriteLine($"{song.Title}");
+        //            }
+        //        }
+        //    }
+        //    if (found == false)
+        //    {
+        //        throw new Exception("Person hates music!");
+        //    }
+        //}
     }
 }

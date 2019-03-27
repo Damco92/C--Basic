@@ -24,5 +24,22 @@ namespace ClassLibrary1
         }
 
 
+        public void GetFavSongs()
+        {
+            if (favoriteSongs.Count > 0)
+            {
+                foreach (var song in favoriteSongs)
+                {
+                    Console.WriteLine(song);
+                }
+            }
+            else
+            {
+                Console.WriteLine("{0} {1} doesn't like {2}", FirstName, LastName, FavoreteMusicType);
+            }
+        }
+
+
+
     }
 }
