@@ -1,0 +1,6 @@
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_9\CinemaApp\bin\Debug\CinemaApp.dll
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_9\CinemaApp\bin\Debug\CinemaApp.pdb
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_9\CinemaApp\obj\Debug\CinemaApp.csprojAssemblyReference.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_9\CinemaApp\obj\Debug\CinemaApp.csproj.CoreCompileInputs.cache
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_9\CinemaApp\obj\Debug\CinemaApp.dll
+C:\Users\Damco\Desktop\SEDC\C#\C#-Basic\Homeworks\Class_9\CinemaApp\obj\Debug\CinemaApp.pdb

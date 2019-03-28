@@ -35,33 +35,44 @@ namespace ConsoleApp1
             List<User> admins = users.Where(user => user.role == Role.Admin).ToList();
             List<User> trainers = users.Where(user => user.role == Role.Trainer).ToList();
             List<User> students = users.Where(user => user.role == Role.Student).ToList();
-
-
+            Console.WriteLine(LogIn(users).Username);
 
             Console.Read();
         }
 
-        static bool LogIn(List<User> users)
+        static User LogIn(List<User> users)
         {
             Console.WriteLine("Plese enter your username");
             string usernameInput = Console.ReadLine();
             Console.WriteLine("Please enter your password");
             string passInput = Console.ReadLine();
             bool found = false;
+            User loggedInUser = new User();
             foreach (User user in users)
             {
                 if (usernameInput == user.Username && passInput == user.GetPassword())
                 {
                     found = true;
                     Console.WriteLine($"User: {user.Username} is a {user.role} and is in our database!");
+                    if(user.role == Role.Admin)
+                    {
+                        loggedInUser = user;
+                    }
+                    else if (user.role == Role.Trainer)
+                    {
+                        loggedInUser = user;
+                    } else if (user.role == Role.Student)
+                    {
+                        loggedInUser = user;
+                    }
                 }
             }
             if (found == false)
             {
                 Console.WriteLine("User does not exists!");
-                throw new Exception("Wrong Input!");
+                throw new Exception("Wrong Username!");
             }
-            return true;
+            return loggedInUser;
         }
     }
 }

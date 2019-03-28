@@ -17,6 +17,10 @@ namespace AcademyApp
             Username = userName;
             role = myRole;
         }
+        public User()
+        {
+
+        }
 
         public string GetPassword()
         {
