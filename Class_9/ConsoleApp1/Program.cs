@@ -71,9 +71,17 @@ namespace ConsoleApp1
                                 Console.WriteLine("Please write the name of the movie you want to watch!");
                                 string movieInput = Console.ReadLine();
                                 List<Movie> moviePlaying1 = horrorMovies.Where(x => movieInput == x.Title).ToList();
-                                foreach (var movie in moviePlaying1)
+                                foreach (Movie movie in moviePlaying1)
                                 {
-                                    Console.WriteLine("The movie" + movie.Title + "is playing");
+                                    if (movieInput == movie.Title)
+                                    {
+                                        Console.WriteLine($"The movie playing is {movie.Title}");
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("Wrong input no such movie in this genre!");
+                                    }
+                                    break;
                                 }
                                 break;
                             }
@@ -84,47 +92,67 @@ namespace ConsoleApp1
                                 Console.WriteLine("Please write the name of the movie you want to watch!");
                                 string inputMovie2 = Console.ReadLine();
                                 List<Movie> moviePlaying2 = comedyMovies.Where(x => inputMovie2 == x.Title).ToList();
-                                foreach (var movie in moviePlaying2)
+                                foreach (Movie movie in moviePlaying2)
                                 {
-                                    Console.WriteLine("The movie" + movie.Title + "is playing");
+                                    if (inputMovie2 == movie.Title)
+                                    {
+                                        Console.WriteLine($"The movie playing is {movie.Title}");
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("Wrong input no such movie in this genre!");
+                                    }
+                                    break;
                                 }
                                 break;
                             }
                         case "Drama":
+                            { 
                             List<Movie> dramaMovies = currentCinema.ListOfMovies.Where(x => x.Genre == Genre.Drama).ToList();
                             DisplayAllMovies(dramaMovies);
                             Console.WriteLine("Please write the name of the movie you want to watch!");
                             string inputMovie3 = Console.ReadLine();
                             List<Movie> moviePlaying3 = dramaMovies.Where(x => inputMovie3 == x.Title).ToList();
-                            foreach (var movie in moviePlaying3)
+                            foreach (Movie movie in moviePlaying3)
                             {
-                                Console.WriteLine("The movie" + movie.Title + "is playing");
+                                if (inputMovie3 == movie.Title)
+                                {
+                                    Console.WriteLine($"The movie playing is {movie.Title}");
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong input no such movie in this genre!");
+                                }
+                                break;
                             }
                             break;
+                            }
                         case "Action":
+                            { 
                             List<Movie> action = currentCinema.ListOfMovies.Where(x => x.Genre == Genre.Action).ToList();
                             DisplayAllMovies(action);
                             Console.WriteLine("Please write the name of the movie you want to watch!");
                             string inputMovie4 = Console.ReadLine();
                             List<Movie> moviePlaying4 = action.Where(x => inputMovie4 == x.Title).ToList();
-                            foreach (var movie in moviePlaying4)
+                            foreach (Movie movie in moviePlaying4)
                             {
-                                Console.WriteLine("The movie" + movie.Title + "is playing");
+                                if (inputMovie4 == movie.Title)
+                                {
+                                    Console.WriteLine($"The movie playing is {movie.Title}");
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong input no such movie in this genre!");
+                                }
+                                break;
                             }
                             break;
-                        case "SciFi":
-                            List<Movie> sciFi = currentCinema.ListOfMovies.Where(x => x.Genre == Genre.Sci_Fi).ToList();
-                            DisplayAllMovies(sciFi);
-                            Console.WriteLine("Please write the name of the movie you want to watch!");
-                            string inputMovie5 = Console.ReadLine();
-                            List<Movie> moviePlaying5 = sciFi.Where(x => inputMovie5 == x.Title).ToList();
-                            foreach (var movie in moviePlaying5)
-                            {
-                                Console.WriteLine("The movie" + movie.Title + "is playing");
                             }
-                            break;
+                        
                         default:
+                            { 
                             throw new Exception("You must enter the correct genre name!");
+                            }
                     }
                 }
             }
@@ -142,7 +170,6 @@ namespace ConsoleApp1
                 else if(secondChoise == "2")
                 {
                     Console.WriteLine("Please enter the genre you want to filtter the movies through!");
-                    Console.WriteLine("Please enter the genre you want to filtter the movies through!");
                     string genreChoise = Console.ReadLine();
                     switch (genreChoise)
                     {
@@ -153,9 +180,16 @@ namespace ConsoleApp1
                                 Console.WriteLine("Please write the name of the movie you want to watch!");
                                 string movieInput = Console.ReadLine();
                                 List<Movie> moviePlaying1 = horrorMovies.Where(x => movieInput == x.Title).ToList();
-                                foreach (var movie in moviePlaying1)
+                                foreach (Movie movie in moviePlaying1)
                                 {
-                                    Console.WriteLine("The movie" + movie.Title + "is playing");
+                                    if (movieInput == movie.Title)
+                                    {
+                                        Console.WriteLine($"The movie playing is {movie.Title}");
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("Wrong input no such movie in this genre!");
+                                    }
                                 }
                                 break;
                             }
@@ -166,21 +200,35 @@ namespace ConsoleApp1
                                 Console.WriteLine("Please write the name of the movie you want to watch!");
                                 string inputMovie2 = Console.ReadLine();
                                 List<Movie> moviePlaying2 = comedyMovies.Where(x => inputMovie2 == x.Title).ToList();
-                                foreach (var movie in moviePlaying2)
+                                foreach (Movie movie in moviePlaying2)
                                 {
-                                    Console.WriteLine("The movie" + movie.Title + "is playing");
+                                    if (inputMovie2 == movie.Title)
+                                    {
+                                        Console.WriteLine($"The movie playing is {movie.Title}");
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("Wrong input no such movie in this genre!");
+                                    }
                                 }
-                                break;
                             }
+                                break;
                         case "Drama":
                             List<Movie> dramaMovies = currentCinema.ListOfMovies.Where(x => x.Genre == Genre.Drama).ToList();
                             DisplayAllMovies(dramaMovies);
                             Console.WriteLine("Please write the name of the movie you want to watch!");
                             string inputMovie3 = Console.ReadLine();
                             List<Movie> moviePlaying3 = dramaMovies.Where(x => inputMovie3 == x.Title).ToList();
-                            foreach (var movie in moviePlaying3)
+                            foreach (Movie movie in moviePlaying3)
                             {
-                                Console.WriteLine("The movie" + movie.Title + "is playing");
+                                if (inputMovie3 == movie.Title)
+                                {
+                                    Console.WriteLine($"The movie playing is {movie.Title}");
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong input no such movie in this genre!");
+                                }
                             }
                             break;
                         case "Action":
@@ -189,9 +237,16 @@ namespace ConsoleApp1
                             Console.WriteLine("Please write the name of the movie you want to watch!");
                             string inputMovie4 = Console.ReadLine();
                             List<Movie> moviePlaying4 = action.Where(x => inputMovie4 == x.Title).ToList();
-                            foreach (var movie in moviePlaying4)
+                            foreach (Movie movie in moviePlaying4)
                             {
-                                Console.WriteLine("The movie" + movie.Title + "is playing");
+                                if (inputMovie4 == movie.Title)
+                                {
+                                    Console.WriteLine($"The movie playing is {movie.Title}");
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong input no such movie in this genre!");
+                                }
                             }
                             break;
                         case "SciFi":
@@ -200,9 +255,16 @@ namespace ConsoleApp1
                             Console.WriteLine("Please write the name of the movie you want to watch!");
                             string inputMovie5 = Console.ReadLine();
                             List<Movie> moviePlaying5 = sciFi.Where(x => inputMovie5 == x.Title).ToList();
-                            foreach (var movie in moviePlaying5)
+                            foreach (Movie movie in moviePlaying5)
                             {
-                                Console.WriteLine("The movie" + movie.Title + "is playing");
+                                if (inputMovie5 == movie.Title)
+                                {
+                                    Console.WriteLine($"The movie playing is {movie.Title}");
+                                }
+                                else
+                                {
+                                    throw new Exception("Wrong input no such movie in this genre!");
+                                }
                             }
                             break;
                         default:

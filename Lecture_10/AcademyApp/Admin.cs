@@ -19,35 +19,45 @@ namespace AcademyApp
 
         }
 
-        public void RemoveAdmin(List<Admin> adminss)
+        public void RemoveAdmin(List<User> admins,Admin me)
         {
-            foreach (var admin in adminss)
+            Console.WriteLine("Please write the name of the admin you want to remove");
+            string adminName = Console.ReadLine();
+            bool found = false;
+            foreach (var admin in admins.ToList())
             {
-                if (admin == !LogIn(admins))
+                if (adminName == admin.Username && adminName != me.Username)
                 {
-                    Console.WriteLine($"Please press 1 to remove the admin {admin.FullName}!");
-                    int adminErase =Convert.ToInt32(Console.ReadLine());
-                    if (adminErase == 1)
-                    {
-                        adminss.Remove(admin);
-                    }
-                    else
-                    {
-                        continue;
-                    }
-
+                    found = true;
+                    admins.Remove(admin);
+                    Console.WriteLine($"The admin {admin.Username} has been removed!");
                 }
-                else if (admin == LogIn(admins))
-                {
-                    Console.WriteLine("SOrry you can not erase yourself!");
-                    throw new Exception("Can not remove your self!");
-                }
+            }
+            if (found == false)
+            {
+                Console.WriteLine("Sorry there is not such user");
+                throw new Exception("No such user");
             }
         }
 
-        public Admin AddAdmin(List<Admin admins>)
+        public void AddAdminUser(List<User> admins,User newAdmin)
         {
-
+            Console.WriteLine("Please enter new username");
+            string newUserUsername = Console.ReadLine();
+            bool found = false;
+            foreach (var user in admins.ToList())
+            {
+                if (newUserUsername != user.Username && newUserUsername != newAdmin.Username)
+                {
+                    admins.Add(new User(newAdmin.Username = newUserUsername, Role.Admin));
+                    Console.WriteLine($"User {newUserUsername} added to Admins!");
+                    found = true;
+                }
+            }
+            if (found == false)
+            {
+                throw new Exception("User eather exists or not valid input");
+            }
         }
     }
 }
