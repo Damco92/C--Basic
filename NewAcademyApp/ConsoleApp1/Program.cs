@@ -11,20 +11,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            User orce = new Admin("orce","2013","Orce Petrovski",Role.Admin);
-            User dejan = new Admin("deki","2014","Dejan Zdravkosvki", Role.Admin);
+            User orce = new Admin("orce","2013","Orce Petrovski");
+            User dejan = new Admin("deki","2014","Dejan Zdravkosvki");
             User risto = new Teacher("riste","Risto Panchevski",2,Role.Teacher);
             User martin = new Teacher("macko","Martin Panovski",1,Role.Teacher);
-            User damjan = new Student("damco", "Damjan Stojanovski", Role.Student,1);
-            User igor = new Student("ige","Igor Mitevski",Role.Student,1);
-            User samir = new Student("samir","Sameer Ali",Role.Student,1);
-            User danaya = new Student("danny","Danaya Bay", Role.Student,1);
-            User stefanija = new Student("stefi","Stefanija Makarovska",Role.Student,1);
-            User bojana = new Student("boka","Bojana Naumoska",Role.Student,1);
-            User david = new Student("david","David Ilievski", Role.Student,1);
-            User aleksandra = new Student("aleksa","Aleksandra Krstevksa",Role.Student,1);
-            User riste = new Student("riki","Riste Spasov", Role.Student,1);
-            User borislav = new Student("boki", "Borislav Manevski",Role.Student,1);
+            Student damjan = new Student("damco", "Damjan Stojanovski", Role.Student,new Dictionary<string, int> { {"C#",4 },{"JavaScript",4 },{ "CSS",3} });
+            Student igor = new Student("ige","Igor Mitevski",Role.Student, new Dictionary<string, int> { { "C#", 4 }, { "JavaScript", 4 }, { "CSS", 3 } });
+            Student samir = new Student("samir","Sameer Ali",Role.Student, new Dictionary<string, int> { { "C#", 5 }, { "JavaScript", 5 }, { "CSS", 4 } });
+            Student danaya = new Student("danny","Danaya Bay", Role.Student, new Dictionary<string, int> { { "C#", 3 }, { "JavaScript", 3 }, { "CSS", 3 } });
+            Student stefanija = new Student("stefi","Stefanija Makarovska",Role.Student, new Dictionary<string, int> { { "C#", 3}, { "JavaScript", 4 }, { "CSS", 4 } });
+            Student bojana = new Student("boka","Bojana Naumoska",Role.Student, new Dictionary<string, int> { { "C#", 4 }, { "JavaScript", 4 }, { "CSS", 4 } });
+            Student david = new Student("david","David Ilievski", Role.Student, new Dictionary<string, int> { { "C#", 5 }, { "JavaScript", 5 }, { "CSS", 3 } });
+            Student aleksandra = new Student("aleksa","Aleksandra Krstevksa",Role.Student, new Dictionary<string, int> { { "C#", 3 }, { "JavaScript", 4 }, { "CSS", 5 } });
+            Student riste = new Student("riki","Riste Spasov", Role.Student, new Dictionary<string, int> { { "C#", 3 }, { "JavaScript", 4 }, { "CSS", 5 } });
+            Student borislav = new Student("boki", "Borislav Manevski",Role.Student, new Dictionary<string, int> { { "C#", 3 }, { "JavaScript", 4 }, { "CSS", 4 } });
             List<User> users = new List<User> { orce,dejan,risto,martin,damjan,igor,samir,danaya,stefanija,bojana,david,aleksandra,riste,borislav};
 
             orce.SetPass("orce1233");
@@ -42,20 +42,54 @@ namespace ConsoleApp1
             riste.SetPass("riki1234");
             borislav.SetPass("boki1234");
 
-            LogIn(users);
-
             List<User> admins = users.Where(x => x.Role == Role.Admin).ToList();
+            List<Admin> myAdmins = admins.ConvertAll(x => new Admin {UserName = x.UserName,FullName = x.FullName, Role = Role.Admin }).ToList();
             List<User> teachers = users.Where(x => x.Role == Role.Teacher).ToList();
+            List<Teacher> myTeachers = teachers.ConvertAll(x => new Teacher { UserName = x.UserName, FullName = x.FullName, Role = Role.Admin }).ToList();
             List<User> students = users.Where(x => x.Role == Role.Student).ToList();
-
+            List<Student> myStudents = new List<Student> { damjan, igor, samir, danaya, borislav, riste, bojana, stefanija, david, aleksandra };
             User loggedUser = LogIn(users);
             if(loggedUser.Role == Role.Admin)
             {
-                Console.WriteLine($"Hello {loggedUser.FullName}.");
+                Admin newAdmin = (Admin)loggedUser;
+                Console.WriteLine($"Hello {newAdmin.FullName}.");
                 Console.WriteLine("Please enter 1 to add new user or 2 to remove user!");
                 string adminInput = Console.ReadLine();
+                if (adminInput == "1")
+                {
+                    newAdmin.AddAdmin(myAdmins);
+                }
+                else if (adminInput == "2")
+                {
+                    newAdmin.RemoveAdmin(myAdmins,newAdmin);
+                }
 
             }
+            else if(loggedUser.Role == Role.Teacher)
+            {
+                Teacher newTeacher = (Teacher)loggedUser;
+                Console.WriteLine("Please chose 1 to show all student names!");
+                Console.WriteLine("Pleae chose 2 to choose by student and to see his/hers subjects and grades!");
+                string choise = Console.ReadLine();
+                if(choise == "1")
+                {
+                    newTeacher.ShowStudents(myStudents);
+                }
+                else if (choise == "2")
+                {
+                    newTeacher.showSubsAndGrades(myStudents);
+                }
+            }
+            else if(loggedUser.Role == Role.Student)
+            {
+                Student newStudent = (Student)loggedUser;
+                Console.WriteLine("Please choose 1 to enroll a new subject!");
+                string userInput = Console.ReadLine();
+                if(userInput == "1")
+                {
+                    newStudent.Enroll(myStudents);
+                }
+            } 
 
 
             Console.ReadLine();
